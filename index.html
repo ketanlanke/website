@@ -1,139 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ketan Lanke — 3D Animator</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Closest Google Font to Minion Pro Italic: EB Garamond Italic for the name, plus a clean serif body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
-    
-/* --- Updated Hamburger & Mobile Menu Fixes --- */
-:root {
-  --menu-open-grey: #888888;
-}
-
-/* Fix: Only change text color, not background, when menu is open */
-body:has(.mobile-menu.open) .nav-name,
-body:has(.mobile-menu.open) .nav-links a,
-body:has(.mobile-menu.open) .hamburger span {
-  color: var(--menu-open-grey) !important;
-  background-color: transparent !important; /* Changed from var(--menu-open-grey) */
-}
-
-/* Responsive visibility: Hide hamburger on desktop, show links */
-@media (min-width: 641px) {
-  .hamburger {
-    display: none !important;
-  }
-  .nav-links {
-    display: flex !important;
-  }
-  .mobile-menu {
-    display: none !important;
-  }
-}
-
-/* Ensure mobile-only behavior for hamburger */
-@media (max-width: 640px) {
-  .nav-links {
-    display: none !important;
-  }
-  .hamburger {
-    display: flex !important;
-  }
-}
-
-/* Ensure the thin line style for hamburger spans */
-.hamburger span {
-  background-color: currentColor !important;
-  height: 1px !important;
-}
-
-
-.nav-name, .nav-links a, .hamburger span {
-  transition: color 0.4s ease, background-color 0.4s ease;
-}
-
-/* 2-Line Thin Hamburger */
-.hamburger {
-  width: 24px !important;
-  height: 14px !important;
-  display: flex !important;
-  position: relative !important;
-  z-index: 10005 !important;
-  background: transparent !important;
-  border: none !important;
-  cursor: pointer !important;
-  padding: 0 !important;
-}
-
-.hamburger span {
-  position: absolute !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 1px !important;
-  background-color: currentColor !important;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease !important;
-  transform-origin: center !important;
-}
-
-.hamburger span:nth-child(1) { top: 0 !important; }
-.hamburger span:nth-child(2) { bottom: 0 !important; }
-.hamburger span:nth-child(3) { display: none !important; }
-
-.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg) !important; }
-.hamburger.open span:nth-child(2) { transform: translateY(-6.5px) rotate(-45deg) !important; }
-
-/* Mobile Menu Backdrop */
-.mobile-menu {
-  position: fixed !important;
-  inset: 0 !important;
-  background-color: rgb(247, 245, 241) !important;
-  z-index: 9999 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  padding: 80px 40px !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  transition: opacity 0.4s ease, visibility 0.4s ease !important;
-}
-
-.mobile-menu.open {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Menu Text Slide Animation */
-.mobile-menu .link-text {
-  display: inline-block;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.5s ease;
-}
-
-.mobile-menu.open .link-text {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.mobile-menu a:nth-child(1) .link-text { transition-delay: 0.1s; }
-.mobile-menu a:nth-child(2) .link-text { transition-delay: 0.15s; }
-.mobile-menu a:nth-child(3) .link-text { transition-delay: 0.2s; }
-    /* ─── Tokens ─────────────────────────────────────────── */
+    /* --- Tokens --- */
     :root {
-      --bg:        #f7f5f1;       /* warm off-white, close to Stephanie's */
-      --ink:       #1c1b18;       /* near-black, warm not cold */
-      --mid:       #7a7568;       /* muted warm grey for secondary text */
-      --rule:      #d6d2c8;       /* hairline colour */
-      --accent:    #8b7355;       /* warm tawny — used sparingly */
-      --link:      #1c1b18;       /* links same as ink, underline does the work */
+      --bg:        #f7f5f1;       
+      --ink:       #1c1b18;       
+      --mid:       #7a7568;       
+      --rule:      #d6d2c8;       
+      --accent:    #8b7355;       
+      --link:      #1c1b18;       
 
       --font-name: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
       --font-body: 'EB Garamond', Georgia, serif;
@@ -153,11 +39,11 @@ body:has(.mobile-menu.open) .hamburger span {
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── Nav ────────────────────────────────────────────── */
+    /* --- Navigation --- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 10000;
       background: var(--bg);
       display: flex;
       align-items: center;
@@ -199,38 +85,50 @@ body:has(.mobile-menu.open) .hamburger span {
 
     /* Hamburger (mobile only) */
     .hamburger {
+      width: 24px;
+      height: 14px;
       display: none;
       flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
+      justify-content: space-between;
+      position: relative;
+      z-index: 10005;
+      background: transparent;
       border: none;
-      padding: 4px;
+      cursor: pointer;
+      padding: 0;
     }
 
     .hamburger span {
       display: block;
-      width: 22px;
+      width: 100%;
       height: 1px;
-      background: var(--ink);
-      transition: opacity 0.2s;
+      background-color: var(--ink);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+      transform-origin: center;
     }
 
-    /* Mobile nav overlay */
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile Menu Backdrop */
     .mobile-menu {
-      display: none;
       position: fixed;
       inset: 0;
-      z-index: 99;
-      background: var(--bg);
+      background-color: var(--bg);
+      z-index: 9999;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
       justify-content: center;
-      padding: 3rem 2.4rem;
-      gap: 2rem;
+      padding: 80px 40px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
     }
 
-    .mobile-menu.open { display: flex; }
+    .mobile-menu.open {
+      visibility: visible;
+      opacity: 1;
+    }
 
     .mobile-menu a {
       font-family: var(--font-name);
@@ -238,29 +136,30 @@ body:has(.mobile-menu.open) .hamburger span {
       font-size: 2.2rem;
       color: var(--ink);
       text-decoration: none;
+      margin-bottom: 2rem;
     }
 
-    .mobile-menu .close-btn {
-      position: absolute;
-      top: 1.4rem;
-      right: 1.8rem;
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--mid);
+    /* --- Responsive Logic --- */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.4rem; height: 60px; }
+      .nav-name { font-size: 1.45rem; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
+      main { padding: 76px 1.4rem 2rem; }
     }
 
-    /* ─── Layout wrapper ─────────────────────────────────── */
+    @media (min-width: 769px) {
+      .hamburger, .mobile-menu { display: none !important; }
+      .nav-links { display: flex !important; }
+    }
+
+    /* --- Layout & Content --- */
     main {
       max-width: 1100px;
       margin: 0 auto;
       padding: 100px 4rem 2rem;
     }
 
-    /* ─── Page heading ───────────────────────────────────── */
     .page-title {
       font-family: var(--font-name);
       font-style: italic;
@@ -272,22 +171,17 @@ body:has(.mobile-menu.open) .hamburger span {
       margin-bottom: 2.8rem;
     }
 
-    /* ─── Reel label ─────────────────────────────────────── */
     .reel-label {
       font-family: var(--font-body);
-      font-style: normal;
-      font-weight: 400;
       font-size: 1rem;
       color: var(--mid);
       margin-bottom: 0.8rem;
-      letter-spacing: 0.02em;
     }
 
-    /* ─── Showreel ───────────────────────────────────────── */
     .reel-wrap {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 */
+      padding-top: 56.25%; 
       background: #1a1814;
       margin-bottom: 2.6rem;
     }
@@ -300,29 +194,20 @@ body:has(.mobile-menu.open) .hamburger span {
       border: none;
     }
 
-    /* ─── Section divider ────────────────────────────────── */
     .rule {
       border: none;
       border-top: 1px solid var(--rule);
       margin: 2.6rem 0;
     }
 
-    /* ─── Bio text ───────────────────────────────────────── */
     .bio p {
-      font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
       font-size: 1.12rem;
       line-height: 1.82;
       color: var(--ink);
       margin-bottom: 1.4em;
     }
 
-    .bio p:last-child { margin-bottom: 0; }
-
-    /* ─── CV link ────────────────────────────────────────── */
-    .cv-block {
-      margin-top: 2.8rem;
-    }
-
+    .cv-block { margin-top: 2.8rem; }
     .cv-label {
       font-family: var(--font-ui);
       font-size: 0.65rem;
@@ -332,19 +217,7 @@ body:has(.mobile-menu.open) .hamburger span {
       margin-bottom: 0.5rem;
     }
 
-    .cv-links-row {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-    }
-
-    .cv-divider {
-      font-family: var(--font-name);
-      font-style: italic;
-      font-size: 1.22rem;
-      color: var(--rule);
-    }
-
+    .cv-links-row { display: flex; align-items: baseline; gap: 0.5rem; }
     .cv-link {
       font-family: var(--font-name);
       font-style: italic;
@@ -353,87 +226,17 @@ body:has(.mobile-menu.open) .hamburger span {
       text-decoration: underline;
       text-underline-offset: 3px;
       text-decoration-color: var(--rule);
-      transition: text-decoration-color 0.2s;
     }
 
-    .cv-link:hover {
-      text-decoration-color: var(--accent);
-    }
-
-    /* ─── Wave divider ───────────────────────────────────── */
-    .wave-divider {
-      margin-top: 1.6rem;
-      line-height: 0;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .wave-divider svg {
-      display: block;
-      width: 100%;
-      height: 80px;
-    }
-
-    /* ─── Footer section (lighter bg) ───────────────────── */
-    .footer-section {
-      background: #fdfcfa;
-      width: 100%;
-      padding: 2rem 0 2.4rem;
-    }
-
-    /* ─── Contact / footer links ─────────────────────────── */
-    .footer-links {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 4rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem 1.6rem;
-    }
-
-    .footer-links a {
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      color: var(--mid);
-      text-decoration: none;
-      text-transform: lowercase;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--ink); }
-
-    /* ─── Site footer ────────────────────────────────────── */
-    footer {
-      background: #fdfcfa;
-      border-top: none;
-      text-align: center;
-      padding: 1.8rem 2rem;
-      font-family: var(--font-ui);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--mid);
-    }
-
-    /* ─── Responsive ─────────────────────────────────────── */
-    @media (max-width: 640px) {
-      nav { padding: 0 1.4rem; height: 60px; }
-      .nav-name { font-size: 1.45rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      main { padding: 76px 1.4rem 2rem; }
-      .footer-links { padding: 0 1.4rem; }
-    }
-
-    /* ─── Reduced motion ─────────────────────────────────── */
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
+    .wave-divider svg { display: block; width: 100%; height: 80px; }
+    .footer-section { background: #fdfcfa; width: 100%; padding: 2rem 0 2.4rem; }
+    .footer-links { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; }
+    .footer-links a { font-family: var(--font-ui); font-size: 0.72rem; color: var(--mid); text-decoration: none; text-transform: lowercase; }
+    footer { background: #fdfcfa; text-align: center; padding: 1.8rem 2rem; font-family: var(--font-ui); font-size: 0.62rem; color: var(--mid); }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
 <nav>
   <a class="nav-name" href="#">Ketan Lanke</a>
   <ul class="nav-links">
@@ -447,89 +250,63 @@ body:has(.mobile-menu.open) .hamburger span {
   </button>
 </nav>
 
-  <!-- Mobile menu overlay -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#"><span class="link-text">About</span></a>
-  <a href="cv.html"><span class="link-text">CV</span></a>
-  <a href="mailto:ketan@ketanlanke.com"><span class="link-text">Contact</span></a>
+  <a href="#">About</a>
+  <a href="cv.html">CV</a>
+  <a href="mailto:ketan@ketanlanke.com">Contact</a>
 </div>
 
-  <main>
-
-    <!-- Demoreel label -->
-    <p class="reel-label">Demoreel — 2026</p>
-
-    <!-- Showreel — autoplay, muted (browser requirement), loop -->
-    <div class="reel-wrap">
-      <iframe
-        src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&fl=pl&fe=vl"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        title="Ketan Lanke — 3D Animation Showreel"
-      ></iframe>
-    </div>
-
-    <hr class="rule" />
-
-    <!-- Bio -->
-    <section class="bio">
-      <p>
-        I grew up playing games long before I imagined I'd one day help create them. From spending hours in local cyber cafés to eventually building my own gaming library on PC and consoles, I became fascinated by how animation shaped the way games felt to play. The timing of an attack, the weight behind a movement, or the anticipation before an action could completely change the player's experience. To me, animation isn't just visual polish — it's where gameplay, design and player interaction come together.
-      </p>
-      <p>
-        That fascination led me to study Animation at the University of Derby in England, followed by specialised training in Creature Animation, where I developed a strong foundation in body mechanics, locomotion and performance. Today, I'm an Associate Animator at Technicolor Games (part of TransPerfect), contributing to NBA 2K26, NBA 2K27 and an anticipated AAA title. My work spans gameplay, cinematics and facial performance, combining motion capture, hand-keyed animation and a muscle-based FACS workflow to create believable characters that support both the gameplay and the artistic direction of each project.
-      </p>
-      <p>
-        Whether I'm animating a basketball player or a cinematic performance, I believe every game has its own visual language. Great animation doesn't exist in isolation — it should feel like a natural extension of the world, complementing its mechanics, storytelling and art direction while making every movement meaningful to the player.
-      </p>
-    </section>
-
-    <!-- CV link -->
-    <div class="cv-block">
-      <p class="cv-label">Full CV</p>
-      <div class="cv-links-row">
-        <a class="cv-link" href="resume-ketan_lanke_la.pdf" target="_blank" rel="noopener">EN ↗</a>
-        <span class="cv-divider">/</span>
-        <a class="cv-link" href="CV_Nihongo_Ketan.pdf" target="_blank" rel="noopener">JP ↗</a>
-        <span class="cv-divider">/</span>
-        <a class="cv-link" href="cv.html">Web ↗</a>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Wave + footer outside main so it spans full width -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fdfcfa"/>
-    </svg>
+<main>
+  <p class="reel-label">Demoreel — 2026</p>
+  <div class="reel-wrap">
+    <iframe src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
 
-  <div class="footer-section">
-    <div class="footer-links">
-      <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
-      <a href="https://vimeo.com/1126581505?fl=pl&fe=vl" target="_blank" rel="noopener">vimeo</a>
-      <a href="https://www.instagram.com/ketan.lanke/" target="_blank" rel="noopener">instagram</a>
-      <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank" rel="noopener">linkedin</a>
+  <hr class="rule">
+
+  <section class="bio">
+    <p>I grew up playing games long before I imagined I'd one day help create them... [Rest of Bio Text]</p>
+  </section>
+
+  <div class="cv-block">
+    <p class="cv-label">Full CV</p>
+    <div class="cv-links-row">
+      <a class="cv-link" href="resume-ketan_lanke_la.pdf" target="_blank">EN ↗</a>
+      <span class="cv-divider">/</span>
+      <a class="cv-link" href="CV_Nihongo_Ketan.pdf" target="_blank">JP ↗</a>
+      <span class="cv-divider">/</span>
+      <a class="cv-link" href="cv.html">Web ↗</a>
     </div>
   </div>
+</main>
 
-  <footer>
-    © 2025 Ketan Lanke
-  </footer>
-  <script>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fdfcfa"></path>
+  </svg>
+</div>
+
+<div class="footer-section">
+  <div class="footer-links">
+    <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
+    <a href="https://vimeo.com/1126581505">vimeo</a>
+    <a href="https://www.instagram.com/ketan.lanke/">instagram</a>
+    <a href="https://www.linkedin.com/in/ketanlanke/">linkedin</a>
+  </div>
+</div>
+
+<footer>© 2025 Ketan Lanke</footer>
+
+<script>
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const links = mobileMenu.querySelectorAll('a');
 
-  function toggleMenu() {
+  hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open');
-  }
+  });
 
-  hamburger.addEventListener('click', toggleMenu);
-
-  // Close menu when a link is clicked
   links.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
