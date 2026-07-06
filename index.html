@@ -45,7 +45,6 @@
       top: 0; left: 0; right: 0;
       z-index: 100;
       background: var(--bg);
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -61,6 +60,7 @@
       letter-spacing: 0.01em;
       color: var(--ink);
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -71,10 +71,10 @@
 
     .nav-links a {
       font-family: var(--font-ui);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: lowercase;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--mid);
       text-decoration: none;
       transition: color 0.2s;
@@ -82,6 +82,62 @@
 
     .nav-links a:hover,
     .nav-links a.active { color: var(--ink); }
+
+    /* Hamburger (mobile only) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--ink);
+      transition: opacity 0.2s;
+    }
+
+    /* Mobile nav overlay */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: var(--bg);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 2.4rem;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .mobile-menu .close-btn {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.8rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mid);
+    }
 
     /* ─── Layout wrapper ─────────────────────────────────── */
     main {
@@ -104,13 +160,13 @@
 
     /* ─── Reel label ─────────────────────────────────────── */
     .reel-label {
-      font-family: var(--font-name);
-      font-style: italic;
+      font-family: var(--font-body);
+      font-style: normal;
       font-weight: 400;
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--mid);
       margin-bottom: 0.8rem;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.02em;
     }
 
     /* ─── Showreel ───────────────────────────────────────── */
@@ -246,10 +302,12 @@
     }
 
     /* ─── Responsive ─────────────────────────────────────── */
-    @media (max-width: 600px) {
-      nav { padding: 0 1.4rem; }
-      .nav-links { gap: 1.2rem; }
-      main { padding: 86px 1.4rem 2rem; }
+    @media (max-width: 640px) {
+      nav { padding: 0 1.4rem; height: 60px; }
+      .nav-name { font-size: 1.45rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      main { padding: 76px 1.4rem 2rem; }
       .footer-links { padding: 0 1.4rem; }
     }
 
@@ -265,11 +323,22 @@
   <nav>
     <a class="nav-name" href="#">Ketan Lanke</a>
     <ul class="nav-links">
-      <li><a href="#" class="active">about</a></li>
-      <li><a href="cv.html">cv</a></li>
-      <li><a href="mailto:ketan@ketanlanke.com">contact</a></li>
+      <li><a href="#" class="active">ABOUT</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="mailto:ketan@ketanlanke.com">CONTACT</a></li>
     </ul>
+    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">CLOSE</button>
+    <a href="#" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+    <a href="cv.html">CV</a>
+    <a href="mailto:ketan@ketanlanke.com">Contact</a>
+  </div>
 
   <main>
 
@@ -279,7 +348,7 @@
     <!-- Showreel — autoplay, muted (browser requirement), loop -->
     <div class="reel-wrap">
       <iframe
-        src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0"
+        src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&fl=pl&fe=vl"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
         title="Ketan Lanke — 3D Animation Showreel"
@@ -325,7 +394,7 @@
   <div class="footer-section">
     <div class="footer-links">
       <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
-      <a href="https://vimeo.com/ketanlanke" target="_blank" rel="noopener">vimeo</a>
+      <a href="https://vimeo.com/1126581505?fl=pl&fe=vl" target="_blank" rel="noopener">vimeo</a>
       <a href="https://www.instagram.com/ketan.lanke/" target="_blank" rel="noopener">instagram</a>
       <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank" rel="noopener">linkedin</a>
     </div>
