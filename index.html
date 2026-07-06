@@ -233,6 +233,34 @@
     .footer-links { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; }
     .footer-links a { font-family: var(--font-ui); font-size: 0.72rem; color: var(--mid); text-decoration: none; text-transform: lowercase; }
     footer { background: #fdfcfa; text-align: center; padding: 1.8rem 2rem; font-family: var(--font-ui); font-size: 0.62rem; color: var(--mid); }
+    <!-- Inside your <style> tag at the bottom -->
+<style>
+    /* ... existing CSS ... */
+
+    /* Mobile Fixes */
+    @media (max-width: 600px) {
+      main {
+        padding: 80px 1.5rem 2rem !important; /* Reduces large side gaps */
+      }
+      
+      .bio {
+        font-size: 1.1rem; /* Slightly larger text for readability */
+        line-height: 1.6;
+      }
+
+      nav {
+        padding: 0 1rem !important; /* Aligns nav with content */
+      }
+
+      footer {
+        font-size: 0.85rem !important; /* Makes footer text legible */
+      }
+
+      .brand {
+        font-size: 1.5rem; /* Scales logo for mobile */
+      }
+    }
+</style>
   </style>
 </head>
 <body>
