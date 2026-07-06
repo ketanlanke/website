@@ -139,20 +139,6 @@
       margin-bottom: 2rem;
     }
 
-    /* --- Responsive Logic --- */
-    @media (max-width: 768px) {
-      nav { padding: 0 1.4rem; height: 60px; }
-      .nav-name { font-size: 1.45rem; }
-      .nav-links { display: none !important; }
-      .hamburger { display: flex !important; }
-      main { padding: 76px 1.4rem 2rem; }
-    }
-
-    @media (min-width: 769px) {
-      .hamburger, .mobile-menu { display: none !important; }
-      .nav-links { display: flex !important; }
-    }
-
     /* --- Layout & Content --- */
     main {
       max-width: 1100px;
@@ -233,47 +219,32 @@
     .footer-links { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; }
     .footer-links a { font-family: var(--font-ui); font-size: 0.72rem; color: var(--mid); text-decoration: none; text-transform: lowercase; }
     footer { background: #fdfcfa; text-align: center; padding: 1.8rem 2rem; font-family: var(--font-ui); font-size: 0.62rem; color: var(--mid); }
-    <!-- Inside your <style> tag at the bottom -->
-<style>
-    /* ... existing CSS ... */
 
-    /* Mobile Fixes */
-    @media (max-width: 600px) {
-      main {
-        padding: 80px 1.5rem 2rem !important; /* Reduces large side gaps */
-      }
+    /* --- Responsive Logic --- */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.5rem !important; height: 60px; }
+      .nav-name { font-size: 1.45rem; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
+      main { padding: 80px 1.5rem 2rem !important; }
       
-      .bio {
-        font-size: 1.1rem; /* Slightly larger text for readability */
+      .bio p {
+        font-size: 1.1rem;
         line-height: 1.6;
       }
-
-      nav {
-        padding: 0 1rem !important; /* Aligns nav with content */
-      }
-
       footer {
-        font-size: 0.85rem !important; /* Makes footer text legible */
-      }
-
-      .brand {
-        font-size: 1.5rem; /* Scales logo for mobile */
+        font-size: 0.85rem !important;
       }
     }
-    
-</style>
-  @media (max-width: 768px) {
-  main {
-    padding: 80px 1.5rem 2rem !important;
-  }
-  nav {
-    padding: 0 1.5rem !important;
-  }
-}
+
+    @media (min-width: 769px) {
+      .hamburger, .mobile-menu { display: none !important; }
+      .nav-links { display: flex !important; }
+    }
   </style>
 </head>
-<body>
 
+<body>
 <nav>
   <a class="nav-name" href="#">Ketan Lanke</a>
   <ul class="nav-links">
@@ -296,21 +267,21 @@
 <main>
   <p class="reel-label">Demoreel — 2026</p>
   <div class="reel-wrap">
-    <iframe src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <iframe src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
   </div>
 
   <hr class="rule">
 
   <section class="bio">
     <p>
-        I grew up playing games long before I imagined I'd one day help create them. From spending hours in local cyber cafés to eventually building my own gaming library on PC and consoles, I became fascinated by how animation shaped the way games felt to play. The timing of an attack, the weight behind a movement, or the anticipation before an action could completely change the player's experience. To me, animation isn't just visual polish — it's where gameplay, design and player interaction come together.
-      </p>
-      <p>
-        That fascination led me to study Animation at the University of Derby in England, followed by specialised training in Creature Animation, where I developed a strong foundation in body mechanics, locomotion and performance. Today, I'm an Associate Animator at Technicolor Games (part of TransPerfect), contributing to NBA 2K26, NBA 2K27 and an anticipated AAA title. My work spans gameplay, cinematics and facial performance, combining motion capture, hand-keyed animation and a muscle-based FACS workflow to create believable characters that support both the gameplay and the artistic direction of each project.
-      </p>
-      <p>
-        Whether I'm animating a basketball player or a cinematic performance, I believe every game has its own visual language. Great animation doesn't exist in isolation — it should feel like a natural extension of the world, complementing its mechanics, storytelling and art direction while making every movement meaningful to the player.
-      </p>
+      I grew up playing games long before I imagined I'd one day help create them. From spending hours in local cyber cafés to eventually building my own gaming library on PC and consoles, I became fascinated by how animation shaped the way games felt to play. The timing of an attack, the weight behind a movement, or the anticipation before an action could completely change the player's experience. To me, animation isn't just visual polish — it's where gameplay, design and player interaction come together.
+    </p>
+    <p>
+      That fascination led me to study Animation at the University of Derby in England, followed by specialised training in Creature Animation, where I developed a strong foundation in body mechanics, locomotion and performance. Today, I'm an Associate Animator at Technicolor Games (part of TransPerfect), contributing to NBA 2K26, NBA 2K27 and an anticipated AAA title. My work spans gameplay, cinematics and facial performance, combining motion capture, hand-keyed animation and a muscle-based FACS workflow to create believable characters that support both the gameplay and the artistic direction of each project.
+    </p>
+    <p>
+      Whether I'm animating a basketball player or a cinematic performance, I believe every game has its own visual language. Great animation doesn't exist in isolation — it should feel like a natural extension of the world, complementing its mechanics, storytelling and art direction while making every movement meaningful to the player.
+    </p>
   </section>
 
   <div class="cv-block">
