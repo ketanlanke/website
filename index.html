@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketan Lanke — 3D Animator</title>
+
+  <!-- Closest Google Font to Minion Pro Italic: EB Garamond Italic for the name, plus a clean serif body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg:        #f7f5f1;       /* warm off-white, close to Stephanie's */
+      --ink:       #1c1b18;       /* near-black, warm not cold */
+      --mid:       #7a7568;       /* muted warm grey for secondary text */
+      --rule:      #d6d2c8;       /* hairline colour */
+      --accent:    #8b7355;       /* warm tawny — used sparingly */
+      --link:      #1c1b18;       /* links same as ink, underline does the work */
+
+      --font-name: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'EB Garamond', Georgia, serif;
+      --font-ui:   'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.8rem;
+      height: 68px;
+    }
+
+    .nav-name {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--ink); }
+
+    /* ─── Layout wrapper ─────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 4rem 2rem;
+    }
+
+    /* ─── Page heading ───────────────────────────────────── */
+    .page-title {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
+      letter-spacing: -0.01em;
+      line-height: 1.08;
+      color: var(--ink);
+      margin-bottom: 2.8rem;
+    }
+
+    /* ─── Reel label ─────────────────────────────────────── */
+    .reel-label {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--mid);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── Showreel ───────────────────────────────────────── */
+    .reel-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      background: #1a1814;
+      margin-bottom: 2.6rem;
+    }
+
+    .reel-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ─── Section divider ────────────────────────────────── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2.6rem 0;
+    }
+
+    /* ─── Bio text ───────────────────────────────────────── */
+    .bio p {
+      font-family: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.12rem;
+      line-height: 1.82;
+      color: var(--ink);
+      margin-bottom: 1.4em;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ─── CV link ────────────────────────────────────────── */
+    .cv-block {
+      margin-top: 2.8rem;
+    }
+
+    .cv-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-links-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .cv-divider {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-size: 1.22rem;
+      color: var(--rule);
+    }
+
+    .cv-link {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-size: 1.22rem;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--rule);
+      transition: text-decoration-color 0.2s;
+    }
+
+    .cv-link:hover {
+      text-decoration-color: var(--accent);
+    }
+
+    /* ─── Wave divider ───────────────────────────────────── */
+    .wave-divider {
+      margin-top: 1.6rem;
+      line-height: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+
+    /* ─── Footer section (lighter bg) ───────────────────── */
+    .footer-section {
+      background: #fdfcfa;
+      width: 100%;
+      padding: 2rem 0 2.4rem;
+    }
+
+    /* ─── Contact / footer links ─────────────────────────── */
+    .footer-links {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.6rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      text-decoration: none;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ─── Site footer ────────────────────────────────────── */
+    footer {
+      background: #fdfcfa;
+      border-top: none;
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1.4rem; }
+      .nav-links { gap: 1.2rem; }
+      main { padding: 86px 1.4rem 2rem; }
+      .footer-links { padding: 0 1.4rem; }
+    }
+
+    /* ─── Reduced motion ─────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a class="nav-name" href="#">Ketan Lanke</a>
+    <ul class="nav-links">
+      <li><a href="#" class="active">about</a></li>
+      <li><a href="cv.html">cv</a></li>
+      <li><a href="mailto:ketan@ketanlanke.com">contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Demoreel label -->
+    <p class="reel-label">Demoreel — 2026</p>
+
+    <!-- Showreel — autoplay, muted (browser requirement), loop -->
+    <div class="reel-wrap">
+      <iframe
+        src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title="Ketan Lanke — 3D Animation Showreel"
+      ></iframe>
+    </div>
+
+    <hr class="rule" />
+
+    <!-- Bio -->
+    <section class="bio">
+      <p>
+        I grew up playing games long before I imagined I'd one day help create them. From spending hours in local cyber cafés to eventually building my own gaming library on PC and consoles, I became fascinated by how animation shaped the way games felt to play. The timing of an attack, the weight behind a movement, or the anticipation before an action could completely change the player's experience. To me, animation isn't just visual polish — it's where gameplay, design and player interaction come together.
+      </p>
+      <p>
+        That fascination led me to study Animation at the University of Derby in England, followed by specialised training in Creature Animation, where I developed a strong foundation in body mechanics, locomotion and performance. Today, I'm an Associate Animator at Technicolor Games (part of TransPerfect), contributing to NBA 2K26, NBA 2K27 and an anticipated AAA title. My work spans gameplay, cinematics and facial performance, combining motion capture, hand-keyed animation and a muscle-based FACS workflow to create believable characters that support both the gameplay and the artistic direction of each project.
+      </p>
+      <p>
+        Whether I'm animating a basketball player or a cinematic performance, I believe every game has its own visual language. Great animation doesn't exist in isolation — it should feel like a natural extension of the world, complementing its mechanics, storytelling and art direction while making every movement meaningful to the player.
+      </p>
+    </section>
+
+    <!-- CV link -->
+    <div class="cv-block">
+      <p class="cv-label">Full CV</p>
+      <div class="cv-links-row">
+        <a class="cv-link" href="resume-ketan_lanke_la.pdf" target="_blank" rel="noopener">EN ↗</a>
+        <span class="cv-divider">/</span>
+        <a class="cv-link" href="CV_Nihongo_Ketan.pdf" target="_blank" rel="noopener">JP ↗</a>
+        <span class="cv-divider">/</span>
+        <a class="cv-link" href="cv.html">Web ↗</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Wave + footer outside main so it spans full width -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fdfcfa"/>
+    </svg>
+  </div>
+
+  <div class="footer-section">
+    <div class="footer-links">
+      <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
+      <a href="https://vimeo.com/ketanlanke" target="_blank" rel="noopener">vimeo</a>
+      <a href="https://www.instagram.com/ketan.lanke/" target="_blank" rel="noopener">instagram</a>
+      <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Ketan Lanke
+  </footer>
+
+</body>
+</html>

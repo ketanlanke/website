@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Ketan Lanke</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:       #f7f5f1;
+      --ink:      #1c1b18;
+      --mid:      #7a7568;
+      --rule:     #d6d2c8;
+      --accent:   #8b7355;
+
+      --font-name: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'EB Garamond', Georgia, serif;
+      --font-ui:   'Inter', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Nav ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4rem;
+      height: 68px;
+    }
+
+    .nav-name {
+      font-family: var(--font-name);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.9rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); }
+
+    /* ─── Layout ──────────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 110px 4rem 80px;
+    }
+
+    /* ─── Top bar ─────────────────────────────────────────── */
+    .cv-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.8rem;
+      margin-bottom: 2.4rem;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: var(--mid);
+    }
+
+    .cv-topbar .download-label {
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .cv-topbar a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--rule);
+      transition: text-decoration-color 0.2s;
+    }
+
+    .cv-topbar a:hover { text-decoration-color: var(--accent); }
+
+    .cv-topbar .sep {
+      color: var(--rule);
+    }
+
+    /* ─── Index / Contents ────────────────────────────────── */
+    .cv-index {
+      margin-bottom: 3.6rem;
+    }
+
+    .cv-index ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cv-index ul li {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-index ul li::before {
+      content: '○  ';
+      color: var(--mid);
+    }
+
+    .cv-index ul li a {
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cv-index ul li a:hover { color: var(--ink); }
+
+    /* ─── Sections ────────────────────────────────────────── */
+    .cv-section {
+      margin-bottom: 4rem;
+    }
+
+    .cv-section-title {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 2.4rem;
+    }
+
+    /* ─── Entry ───────────────────────────────────────────── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 2.4rem;
+      margin-bottom: 2.8rem;
+      align-items: start;
+    }
+
+    .cv-entry-date {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--mid);
+      padding-top: 0.2rem;
+      line-height: 1.6;
+    }
+
+    /* Logo + title row */
+    .entry-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .entry-logo {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+      filter: grayscale(15%);
+    }
+
+    .entry-logo.wide {
+      width: 48px;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .cv-entry-body h2 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.28rem;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+
+    /* Sub-heading within an entry (e.g. project names) */
+    .cv-entry-body h3 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.05rem;
+      line-height: 1.3;
+      color: var(--ink);
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .cv-entry-body .entry-sub {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      margin-bottom: 0.8rem;
+    }
+
+    .cv-entry-body p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+      margin-bottom: 0.6em;
+    }
+
+    .cv-entry-body ul {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 0.8rem;
+    }
+
+    .cv-entry-body ul li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      padding-left: 1.2em;
+      position: relative;
+      margin-bottom: 0.2em;
+    }
+
+    .cv-entry-body ul li::before {
+      content: '○';
+      position: absolute;
+      left: 0;
+      font-size: 0.6rem;
+      top: 0.45em;
+      color: var(--mid);
+    }
+
+    /* ─── Tags ────────────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      border: 1px solid var(--rule);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ─── Languages grid ──────────────────────────────────── */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .lang-item strong {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .lang-item span {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Wave + footer ───────────────────────────────────── */
+    .wave-divider {
+      margin-top: 1.6rem;
+      line-height: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+
+    .footer-section {
+      background: #fdfcfa;
+      width: 100%;
+      padding: 2rem 0 2.4rem;
+    }
+
+    .footer-links {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.6rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      text-decoration: none;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    footer {
+      background: #fdfcfa;
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* ─── Responsive ──────────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 0 1.4rem; }
+      main { padding: 100px 1.4rem 60px; }
+      .cv-entry { grid-template-columns: 1fr; gap: 0.2rem; }
+      .cv-entry-date { margin-bottom: 0.4rem; }
+      .footer-links { padding: 0 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="index.html">Ketan Lanke</a>
+    <ul class="nav-links">
+      <li><a href="index.html">about</a></li>
+      <li><a href="cv.html" class="active">cv</a></li>
+      <li><a href="mailto:ketan@ketanlanke.com">contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- Top bar -->
+    <div class="cv-topbar">
+      <span class="download-label">Download CV (pdf)</span>
+      <a href="resume-ketan_lanke_la.pdf" target="_blank" rel="noopener">EN</a>
+      <span class="sep">/</span>
+      <a href="CV_Nihongo_Ketan.pdf" target="_blank" rel="noopener">JP</a>
+      <span class="sep">&nbsp;·&nbsp;</span>
+      <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
+      <span class="sep">&nbsp;·&nbsp;</span>
+      <span>+91 7507334890</span>
+    </div>
+
+    <!-- Index -->
+    <div class="cv-index">
+      <ul>
+        <li><a href="#experience">Work experience ↓</a></li>
+        <li><a href="#education">Education ↓</a></li>
+        <li><a href="#skills">Technical skills ↓</a></li>
+        <li><a href="#languages">Languages ↓</a></li>
+      </ul>
+    </div>
+
+    <!-- Work Experience -->
+    <section class="cv-section" id="experience">
+      <h3 class="cv-section-title">Work experience</h3>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">02.2025 — present</div>
+        <div class="cv-entry-body">
+          <div class="entry-title-row">
+            <h2>Associate Animator @ Technicolor Games</h2>
+          </div>
+          <p class="entry-sub">Bangalore, India &nbsp;·&nbsp; Part of TransPerfect</p>
+
+          <h3>Announced AAA Title</h3>
+          <ul>
+            <li>Create cinematic facial performances using a muscle-based FACS facial animation pipeline.</li>
+            <li>Refine lip-sync, dialogue delivery, and facial expressions to achieve realistic character performances.</li>
+            <li>Polish motion capture facial data to maintain natural performance fidelity and emotional nuance.</li>
+            <li>Collaborate closely with animation teams within a high-end AAA production pipeline to deliver polished cinematic content.</li>
+            <li>Utilise proprietary tools and workflows to support animation iteration, review, and implementation.</li>
+          </ul>
+
+          <h3>NBA 2K26 / NBA 2K27</h3>
+          <ul>
+            <li>Created AAA-standard body animations focused on cinematic sequences — camera-based and 360° all-angle shots, crowd animations and multi-minute cutscenes — based on motion capture with hand-keyed refinements.</li>
+            <li>Motion capture cleanup and technical animation polish: foot sliding fixes, jitter cleanup, clean arcs of motion, prop alignment, and hand pose refinement.</li>
+            <li>Worked with proprietary pipelines and version control for animation iteration management, asset integration, and in-engine playback validation between Maya and game engine tools.</li>
+            <li>Collaborative team player in a fast-paced, quota-driven production environment.</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Autodesk Maya</span>
+            <span class="tag">MotionBuilder</span>
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">Mo-cap cleanup</span>
+            <span class="tag">FACS</span>
+            <span class="tag">Facial Animation</span>
+            <span class="tag">Audio-to-Face</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section" id="education">
+      <h3 class="cv-section-title">Education</h3>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">2019 — 2022</div>
+        <div class="cv-entry-body">
+          <div class="entry-title-row">
+            <img
+              class="entry-logo wide"
+              src="https://upload.wikimedia.org/wikipedia/en/9/96/University_of_Derby_coat_of_arms.png"
+              alt="University of Derby"
+              onerror="this.style.display='none'"
+            />
+            <h2>Bachelor of Arts (Hons) in Animation</h2>
+          </div>
+          <p class="entry-sub">University of Derby — England</p>
+          <ul>
+            <li>Strong foundation in body mechanics, locomotion, character performance and production pipelines.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="cv-section" id="skills">
+      <h3 class="cv-section-title">Technical skills</h3>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">3+ years</div>
+        <div class="cv-entry-body">
+          <div class="entry-title-row">
+            <img class="entry-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Autodesk_Maya_2023.png/120px-Autodesk_Maya_2023.png" alt="Maya" onerror="this.style.display='none'" />
+            <h2>Autodesk Maya</h2>
+          </div>
+          <ul>
+            <li>Character &amp; Creature Animation</li>
+            <li>Mo-cap cleanup</li>
+            <li>Facial Animation</li>
+            <li>Scripting with Python and MEL</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">1+ year</div>
+        <div class="cv-entry-body">
+          <div class="entry-title-row">
+            <img class="entry-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Autodesk_MotionBuilder_icon.png/120px-Autodesk_MotionBuilder_icon.png" alt="MotionBuilder" onerror="this.style.display='none'" />
+            <h2>Autodesk MotionBuilder</h2>
+          </div>
+          <ul>
+            <li>Mo-cap cleanup &amp; hand-keyed prop animation</li>
+            <li>Character retargeting (Character Controls, Mapping Templates)</li>
+            <li>Story Tool (blends, splicing, cut edits)</li>
+            <li>Locomotion polish (stride, loops, transitions)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">1+ year</div>
+        <div class="cv-entry-body">
+          <div class="entry-title-row">
+            <img class="entry-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UE_Logo_Black_Centered.svg/120px-UE_Logo_Black_Centered.svg.png" alt="Unreal Engine" onerror="this.style.display='none'" />
+            <h2>Unreal Engine</h2>
+          </div>
+          <ul>
+            <li>Animation Blueprint</li>
+            <li>3C implementation, animation blueprint workflow, cinematic integration</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">1+ year</div>
+        <div class="cv-entry-body">
+          <h2>Audio-to-Face Workflow</h2>
+          <ul>
+            <li>Facial animation enhancement, lip-sync refinement, dialogue performance polish</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-date">Basic</div>
+        <div class="cv-entry-body">
+          <h2>Python / MEL</h2>
+          <ul>
+            <li>Animation workflow scripting and automation</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Languages -->
+    <section class="cv-section" id="languages">
+      <h3 class="cv-section-title">Languages</h3>
+      <div class="lang-grid">
+        <div class="lang-item">
+          <strong>English</strong>
+          <span>Fluent</span>
+        </div>
+        <div class="lang-item">
+          <strong>Japanese</strong>
+          <span>JLPT N5</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Wave + footer -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#fdfcfa"/>
+    </svg>
+  </div>
+
+  <div class="footer-section">
+    <div class="footer-links">
+      <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
+      <a href="https://vimeo.com/ketanlanke" target="_blank" rel="noopener">vimeo</a>
+      <a href="https://www.instagram.com/ketan.lanke/" target="_blank" rel="noopener">instagram</a>
+      <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank" rel="noopener">linkedin</a>
+    </div>
+  </div>
+
+  <footer>© 2025 Ketan Lanke</footer>
+
+</body>
+</html>
