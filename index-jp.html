@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ketan Lanke — 3D Animator</title>
+  <title>ケタン・ランケ — 3Dアニメーター</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&family=Noto+Serif+JP:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:        #f7f5f1;
@@ -17,12 +17,12 @@
       --accent:    #8b7355;
       --link:      #1c1b18;
       --font-name: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'EB Garamond', Georgia, serif;
-      --font-ui:   'Inter', system-ui, sans-serif;
+      --font-body: 'Noto Serif JP', 'EB Garamond', Georgia, serif;
+      --font-ui:   'Noto Sans JP', 'Inter', system-ui, sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 18px; scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-weight: 400; line-height: 1.72; -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-weight: 300; line-height: 1.9; -webkit-font-smoothing: antialiased; }
 
     /* --- Nav --- */
     nav {
@@ -38,8 +38,8 @@
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
     .nav-links a {
-      font-family: var(--font-ui); font-size: 0.78rem; font-weight: 300;
-      letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid);
+      font-family: var(--font-ui); font-size: 0.72rem; font-weight: 300;
+      letter-spacing: 0.08em; color: var(--mid);
       text-decoration: none; transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -47,8 +47,8 @@
     /* Language switcher */
     .lang-switch {
       display: flex; align-items: center; gap: 0.4rem;
-      font-family: var(--font-ui); font-size: 0.78rem; font-weight: 300;
-      letter-spacing: 0.14em; text-decoration: none; color: var(--mid);
+      font-family: var(--font-ui); font-size: 0.72rem; font-weight: 300;
+      letter-spacing: 0.1em; text-decoration: none; color: var(--mid);
       transition: color 0.2s; border-left: 1px solid var(--rule);
       padding-left: 1.5rem; margin-left: 0.5rem;
     }
@@ -57,10 +57,9 @@
 
     /* Mobile nav */
     .mobile-right { display: none; align-items: center; gap: 0.8rem; }
-
     .mobile-lang {
       font-family: var(--font-ui); font-size: 0.72rem; font-weight: 300;
-      letter-spacing: 0.12em; color: var(--mid); text-decoration: none;
+      letter-spacing: 0.08em; color: var(--mid); text-decoration: none;
       display: flex; align-items: center; gap: 0.3rem;
     }
     .mobile-lang .flag { font-size: 0.9rem; }
@@ -86,33 +85,36 @@
     }
     .mobile-menu.open { visibility: visible; opacity: 1; }
     .mobile-menu a {
-      font-family: var(--font-name); font-style: italic; font-size: 2.2rem;
-      color: var(--ink); text-decoration: none; margin-bottom: 2rem;
+      font-family: var(--font-body); font-size: 2rem;
+      color: var(--ink); text-decoration: none; margin-bottom: 2rem; font-weight: 300;
     }
     .mobile-menu .menu-lang-switch {
       margin-top: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--rule);
-      font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.12em;
+      font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.1em;
       color: var(--mid); text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
     }
 
     /* --- Main content --- */
     main { max-width: 1100px; margin: 0 auto; padding: 100px 4rem 2rem; }
-    .reel-label { font-family: var(--font-body); font-size: 1rem; color: var(--mid); margin-bottom: 0.8rem; }
+    .reel-label { font-family: var(--font-ui); font-size: 0.9rem; font-weight: 300; color: var(--mid); margin-bottom: 0.8rem; letter-spacing: 0.05em; }
     .reel-wrap { position: relative; width: 100%; padding-top: 56.25%; background: #1a1814; margin-bottom: 2.6rem; }
     .reel-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
     .rule { border: none; border-top: 1px solid var(--rule); margin: 2.6rem 0; }
-    .bio p { font-size: 1.12rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.4em; }
+
+    .bio p { font-size: 1.05rem; line-height: 2.0; color: var(--ink); margin-bottom: 1.4em; font-weight: 300; }
+
     .cv-block { margin-top: 2.8rem; }
     .cv-label { font-family: var(--font-ui); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
-    .cv-links-row { display: flex; align-items: baseline; gap: 0.5rem; }
+    .cv-links-row { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
     .cv-link { font-family: var(--font-name); font-style: italic; font-size: 1.22rem; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
     .cv-divider { font-family: var(--font-name); font-style: italic; font-size: 1.22rem; color: var(--rule); }
+    .cv-link-label { font-family: var(--font-ui); font-size: 0.62rem; color: var(--mid); margin-left: 0.2rem; }
 
     /* --- Footer --- */
     .wave-divider svg { display: block; width: 100%; height: 80px; }
     .footer-section { background: #fdfcfa; width: 100%; padding: 2rem 0 2.4rem; }
     .footer-links { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.6rem; }
-    .footer-links a { font-family: var(--font-ui); font-size: 0.72rem; color: var(--mid); text-decoration: none; text-transform: lowercase; }
+    .footer-links a { font-family: var(--font-ui); font-size: 0.72rem; color: var(--mid); text-decoration: none; }
     .footer-links a:hover { color: var(--ink); }
     footer { background: #fdfcfa; text-align: center; padding: 1.8rem 2rem; font-family: var(--font-ui); font-size: 0.62rem; color: var(--mid); }
 
@@ -123,7 +125,7 @@
       .nav-links { display: none !important; }
       .mobile-right { display: flex !important; }
       main { padding: 80px 1.5rem 2rem; }
-      .bio p { font-size: 1.1rem; line-height: 1.6; }
+      .bio p { font-size: 1rem; line-height: 1.9; }
       footer { font-size: 0.85rem; }
       .footer-links { padding: 0 1.5rem; }
     }
@@ -136,34 +138,34 @@
 <body>
 
 <nav>
-  <a class="nav-name" href="#">Ketan Lanke</a>
+  <a class="nav-name" href="#">ケタン・ランケ</a>
   <ul class="nav-links">
-    <li><a href="#" class="active">ABOUT</a></li>
+    <li><a href="#" class="active">自己紹介</a></li>
     <li><a href="cv.html">CV</a></li>
-    <li><a href="mailto:ketan@ketanlanke.com">CONTACT</a></li>
+    <li><a href="mailto:ketan@ketanlanke.com">お問い合わせ</a></li>
     <li>
-      <a href="index-jp.html" class="lang-switch">
-        <span class="flag">🇯🇵</span> JP
+      <a href="index.html" class="lang-switch">
+        <span class="flag">🇬🇧</span> ENG
       </a>
     </li>
   </ul>
   <!-- Mobile: lang switcher left of hamburger -->
   <div class="mobile-right">
-    <a href="index-jp.html" class="mobile-lang"><span class="flag">🇯🇵</span> JP</a>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+    <a href="index.html" class="mobile-lang"><span class="flag">🇬🇧</span> ENG</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
       <span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#" onclick="closeMobileMenu()">About</a>
+  <a href="#" onclick="closeMobileMenu()">自己紹介</a>
   <a href="cv.html">CV</a>
-  <a href="mailto:ketan@ketanlanke.com">Contact</a>
+  <a href="mailto:ketan@ketanlanke.com">お問い合わせ</a>
 </div>
 
 <main>
-  <p class="reel-label">Demoreel — 2026</p>
+  <p class="reel-label">デモリール — 2026</p>
   <div class="reel-wrap">
     <iframe src="https://player.vimeo.com/video/1126581505?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>
   </div>
@@ -171,19 +173,19 @@
   <hr class="rule">
 
   <section class="bio">
-    <p>I grew up playing games long before I imagined I'd one day help create them. From spending hours in local cyber cafés to eventually building my own gaming library on PC and consoles, I became fascinated by how animation shaped the way games felt to play. The timing of an attack, the weight behind a movement, or the anticipation before an action could completely change the player's experience. To me, animation isn't just visual polish — it's where gameplay, design and player interaction come together.</p>
-    <p>That fascination led me to study Animation at the University of Derby in England, followed by specialised training in Creature Animation, where I developed a strong foundation in body mechanics, locomotion and performance. Today, I'm an Associate Animator at Technicolor Games (part of TransPerfect), contributing to NBA 2K26, NBA 2K27 and an anticipated AAA title. My work spans gameplay, cinematics and facial performance, combining motion capture, hand-keyed animation and a muscle-based FACS workflow to create believable characters that support both the gameplay and the artistic direction of each project.</p>
-    <p>Whether I'm animating a basketball player or a cinematic performance, I believe every game has its own visual language. Great animation doesn't exist in isolation — it should feel like a natural extension of the world, complementing its mechanics, storytelling and art direction while making every movement meaningful to the player.</p>
+    <p>ゲームが好きで育ちました。まさか自分がいつかゲームを作る側になるとは、想像もしていませんでした。地元のネットカフェで何時間も過ごし、やがてPCやコンソールでゲームライブラリを作っていくうちに、アニメーションがゲームの「感触」をどう形づくるかに強く惹かれるようになりました。攻撃のタイミング、動きの重さ、アクション前の予備動作——それだけでプレイヤーの体験はがらりと変わる。私にとってアニメーションは、ただのビジュアル仕上げではなく、ゲームプレイ・デザイン・プレイヤーの感情が交わる場所です。</p>
+    <p>その関心から、イギリスのダービー大学でアニメーションを専攻し、さらにクリーチャーアニメーションの専門的なトレーニングを経て、ボディメカニクス、ロコモーション、パフォーマンスの基盤を築きました。現在はテクニカラーゲームズ（TransPerfect傘下）のアソシエイトアニメーターとして、NBA 2K26、NBA 2K27、そして発表予定のAAAタイトルに携わっています。ゲームプレイ、シネマティクス、フェイシャルパフォーマンスにわたる業務で、モーションキャプチャ、ハンドキーアニメーション、筋肉ベースのFACSワークフローを組み合わせ、ゲームプレイと作品の芸術的方向性を両立させるキャラクターを制作しています。</p>
+    <p>バスケットボール選手であれシネマティクスのパフォーマンスであれ、すべてのゲームには固有のビジュアル言語があると信じています。優れたアニメーションは単独では存在しません——それはゲームのメカニクス、ストーリーテリング、アートディレクションを自然に補完し、すべての動きをプレイヤーにとって意味あるものにするべきです。</p>
   </section>
 
   <div class="cv-block">
-    <p class="cv-label">Full CV</p>
+    <p class="cv-label">履歴書 / CV</p>
     <div class="cv-links-row">
-      <a class="cv-link" href="resume-ketan_lanke_la.pdf" target="_blank">EN ↗</a>
+      <a class="cv-link" href="resume-ketan_lanke_la.pdf" target="_blank">英語版 ↗</a>
       <span class="cv-divider">/</span>
-      <a class="cv-link" href="CV_Nihongo_Ketan.pdf" target="_blank">JP ↗</a>
+      <a class="cv-link" href="CV_Nihongo_Ketan.pdf" target="_blank">日本語版 ↗</a>
       <span class="cv-divider">/</span>
-      <a class="cv-link" href="cv.html">Web ↗</a>
+      <a class="cv-link" href="cv.html">ウェブ版 ↗</a>
     </div>
   </div>
 </main>
@@ -197,9 +199,9 @@
 <div class="footer-section">
   <div class="footer-links">
     <a href="mailto:ketan@ketanlanke.com">ketan@ketanlanke.com</a>
-    <a href="https://vimeo.com/1126581505?fl=pl&fe=vl" target="_blank">vimeo</a>
-    <a href="https://www.instagram.com/ketan.lanke/" target="_blank">instagram</a>
-    <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank">linkedin</a>
+    <a href="https://vimeo.com/1126581505?fl=pl&fe=vl" target="_blank">ビメオ</a>
+    <a href="https://www.instagram.com/ketan.lanke/" target="_blank">インスタグラム</a>
+    <a href="https://www.linkedin.com/in/ketanlanke/" target="_blank">リンクトイン</a>
   </div>
 </div>
 <footer>© 2025 Ketan Lanke</footer>
